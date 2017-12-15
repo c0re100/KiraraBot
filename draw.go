@@ -8,7 +8,6 @@ import (
     "time"
 
     "github.com/Jeffail/gabs"
-    "fmt"
 )
 
 func FirstDraw() {
@@ -47,45 +46,32 @@ func FirstDraw() {
 
     children, _ := jsonParsed.S("managedCharacters").Children()
     for _, child := range children {
-        if child.Search("characterId").Data().(float64) == 10002000 {
+        CharDrawn := child.Search("characterId").Data().(float64)
+        if idContains(CharDrawn) {
+            count++
+        }
+        if CharDrawn == 10002000 {
             Char.ArrayAppend("悠乃", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 11002000 {
+        } else if CharDrawn == 11002000 {
             Char.ArrayAppend("野野原柚子", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 12002000 {
+        } else if CharDrawn == 12002000 {
             Char.ArrayAppend("丈槍由紀", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 13002000 {
+        } else if CharDrawn == 13002000 {
             Char.ArrayAppend("一井透", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 14002000 {
+        } else if CharDrawn == 14002000 {
             Char.ArrayAppend("九條可憐", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 15002000 {
+        } else if CharDrawn == 15002000 {
             Char.ArrayAppend("涼風青葉", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 16002000 {
+        } else if CharDrawn == 16002000 {
             Char.ArrayAppend("本田珠輝", "Gold")
-            count++
-        } else if child.Search("characterId").Data().(float64) == 17002000 {
+        } else if CharDrawn == 17002000 {
             Char.ArrayAppend("千矢", "Gold")
-            count++
         }
     }
 
     log.Println(Char)
-    if count >= 2 {
-        next := ""
-        for next == "" {
-            fmt.Println("雙5星 繼續刷定點? 1/0")
-            fmt.Scanln(&next)
-        }
-        if next == "1" {
-            reDraw()
-        } else {
-            return
-        }
+    if count >= wishDrawn {
+        return
     }
     time.Sleep(time.Duration(random(17, 23)) * time.Second)
     reDraw()
@@ -127,45 +113,32 @@ func reDraw() {
 
         children, _ := jsonParsed.S("managedCharacters").Children()
         for _, child := range children {
-            if child.Search("characterId").Data().(float64) == 10002000 {
+            CharDrawn := child.Search("characterId").Data().(float64)
+            if idContains(CharDrawn) {
+                count++
+            }
+            if CharDrawn == 10002000 {
                 Char.ArrayAppend("悠乃", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 11002000 {
+            } else if CharDrawn == 11002000 {
                 Char.ArrayAppend("野野原柚子", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 12002000 {
+            } else if CharDrawn == 12002000 {
                 Char.ArrayAppend("丈槍由紀", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 13002000 {
+            } else if CharDrawn == 13002000 {
                 Char.ArrayAppend("一井透", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 14002000 {
+            } else if CharDrawn == 14002000 {
                 Char.ArrayAppend("九條可憐", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 15002000 {
+            } else if CharDrawn == 15002000 {
                 Char.ArrayAppend("涼風青葉", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 16002000 {
+            } else if CharDrawn == 16002000 {
                 Char.ArrayAppend("本田珠輝", "Gold")
-                count++
-            } else if child.Search("characterId").Data().(float64) == 17002000 {
+            } else if CharDrawn == 17002000 {
                 Char.ArrayAppend("千矢", "Gold")
-                count++
             }
         }
 
         log.Println(Char)
-        if count >= 2 {
-            next := ""
-            for next == "" {
-                fmt.Println("雙5星 繼續刷定點? 1/0")
-                fmt.Scanln(&next)
-            }
-            if next == "1" {
-                continue
-            } else {
-                return
-            }
+        if count >= wishDrawn {
+            break
         }
         time.Sleep(time.Duration(random(17, 23)) * time.Second)
     }

@@ -3,7 +3,9 @@ package main
 import (
     "crypto/sha256"
     "encoding/hex"
+    "fmt"
     "io/ioutil"
+    "log"
     "math/rand"
     "net/http"
     "time"
@@ -57,4 +59,81 @@ func SHA256withSid(sessionId string, apiEndpoint string, json string) string {
     }
     sha256hash := hash.Sum(nil)
     return hex.EncodeToString(sha256hash)
+}
+
+func ListOfChar() string {
+    var msg string
+    for _, value := range wishlist {
+        if value == 10002000 {
+            msg += "悠乃,"
+        } else if value == 11002000 {
+            msg += "野野原柚子,"
+        } else if value == 12002000 {
+            msg += "丈槍由紀,"
+        } else if value == 13002000 {
+            msg += "一井透,"
+        } else if value == 14002000 {
+            msg += "九條可憐,"
+        } else if value == 15002000 {
+            msg += "涼風青葉,"
+        } else if value == 16002000 {
+            msg += "本田珠輝,"
+        } else if value == 17002000 {
+            msg += "千矢,"
+        }
+    }
+    return msg[:len(msg)-1]
+}
+
+func wishlistAsk() {
+    var wishId string
+    for wishId == "" {
+        fmt.Println("1=悠乃 | 2=野野原柚子 | 3=丈槍由紀 | 4=一井透")
+        fmt.Println("5=九條可憐 | 6=涼風青葉 | 7=本田珠輝 | 8=千矢")
+        fmt.Println("你想要邊幾隻5星做首抽? (eg: 12345678=要晒8隻5星)")
+        fmt.Printf("Pattern: ")
+        fmt.Scanln(&wishId)
+
+        wishDrawn = len(wishId)
+        if wishDrawn >= 1 && wishDrawn <= 10 {
+            for i := 0; i < len(wishId); i++ {
+                if string(wishId[i]) == "1" {
+                    wishlist = append(wishlist, 10002000)
+                } else if string(wishId[i]) == "2" {
+                    wishlist = append(wishlist, 11002000)
+                } else if string(wishId[i]) == "3" {
+                    wishlist = append(wishlist, 12002000)
+                } else if string(wishId[i]) == "4" {
+                    wishlist = append(wishlist, 13002000)
+                } else if string(wishId[i]) == "5" {
+                    wishlist = append(wishlist, 14002000)
+                } else if string(wishId[i]) == "6" {
+                    wishlist = append(wishlist, 15002000)
+                } else if string(wishId[i]) == "7" {
+                    wishlist = append(wishlist, 16002000)
+                } else if string(wishId[i]) == "8" {
+                    wishlist = append(wishlist, 17002000)
+                }
+            }
+        } else {
+            wishId = ""
+            log.Println("數值輸入錯誤...請重新輸入!!!")
+            continue
+        }
+    }
+    log.Println("依家開始抽呢幾隻5星", ListOfChar())
+}
+
+func idContains(drawnID float64) bool {
+    for _, value := range wishlist {
+        if value == drawnID {
+            return true
+        }
+    }
+    return false
+}
+
+func ShowDrawn() {
+    log.Println("恭喜晒, 你已經抽到5星" + ListOfChar())
+    log.Println("你仲唔快D去引繼!!!!!!!!!!!!!!!!!!!!!")
 }

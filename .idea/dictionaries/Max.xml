@@ -2,10 +2,12 @@
   <dictionary name="Max">
     <words>
       <w>abcdefghijklmnopqrstuvwxyz</w>
+      <w>dedup</w>
       <w>questchapter</w>
       <w>reguuid</w>
       <w>uname</w>
       <w>upass</w>
+      <w>wishlist</w>
     </words>
   </dictionary>
 </component>

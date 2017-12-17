@@ -6,16 +6,18 @@ import (
 )
 
 var (
-    reguuid     string
-    accessToken string
-    sessionId   string
+    UUID        string
+    AccessToken string
+    SessionId   string
+    MyCode      string
+    MyName      string
     BoxID       string
-    wishlist    = make([]float64, 0, 8)
-    wishDrawn   int
+    Wishlist    = make([]float64, 0, 8)
+    wishCount   int
 )
 
 func main() {
-    fmt.Println("===========Kirara Fantasia 自動首抽模擬器 v2.0===========")
+    fmt.Println("====================Kirara Fantasia 自動首抽模擬器 v3.0====================")
     SimVersion()
     SignUp()
     Login()
@@ -34,13 +36,13 @@ func main() {
     gachaGet()
     time.Sleep(3 * time.Second)
     FirstDraw()
-    time.Sleep(2 * time.Second)
-    CharSave()
+    //time.Sleep(2 * time.Second)
+    //CharSave()
     time.Sleep(3 * time.Second)
-    SaveData()
+    SaveFile()
     time.Sleep(500 * time.Millisecond)
     ShowDrawn()
     time.Sleep(500 * time.Millisecond)
-    fmt.Println("===========Kirara Fantasia 自動首抽模擬器 v2.0===========")
+    fmt.Println("====================Kirara Fantasia 自動首抽模擬器 v3.0====================")
     time.Sleep(24 * time.Hour)
 }

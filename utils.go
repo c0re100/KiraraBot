@@ -12,12 +12,14 @@ import (
 )
 
 func SimVersion() {
-    url := "https://krr-prd.star-api.com/api/app/version/get?platform=2&version=1.0.2"
+    url := "https://krr-prd.star-api.com/api/app/version/get?platform=2&version=1.0.3"
+
+    hash := SHA256withSid(SessionId, "/api/app/version/get?platform=2&version=1.0.3", "")
 
     req, _ := http.NewRequest("GET", url, nil)
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
-    req.Header.Add("x-star-requesthash", RandomString(64))
+    req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
@@ -63,7 +65,7 @@ func SHA256withSid(sessionId string, apiEndpoint string, json string) string {
 
 func ListOfChar() string {
     var msg string
-    for _, value := range wishlist {
+    for _, value := range Wishlist {
         if value == 10002000 {
             msg += "悠乃,"
         } else if value == 11002000 {
@@ -94,25 +96,25 @@ func wishlistAsk() {
         fmt.Printf("Pattern: ")
         fmt.Scanln(&wishId)
 
-        wishDrawn = len(wishId)
-        if wishDrawn >= 1 && wishDrawn <= 10 {
+        wishCount = len(wishId)
+        if wishCount >= 1 && wishCount <= 10 {
             for i := 0; i < len(wishId); i++ {
                 if string(wishId[i]) == "1" {
-                    wishlist = append(wishlist, 10002000)
+                    Wishlist = append(Wishlist, 10002000)
                 } else if string(wishId[i]) == "2" {
-                    wishlist = append(wishlist, 11002000)
+                    Wishlist = append(Wishlist, 11002000)
                 } else if string(wishId[i]) == "3" {
-                    wishlist = append(wishlist, 12002000)
+                    Wishlist = append(Wishlist, 12002000)
                 } else if string(wishId[i]) == "4" {
-                    wishlist = append(wishlist, 13002000)
+                    Wishlist = append(Wishlist, 13002000)
                 } else if string(wishId[i]) == "5" {
-                    wishlist = append(wishlist, 14002000)
+                    Wishlist = append(Wishlist, 14002000)
                 } else if string(wishId[i]) == "6" {
-                    wishlist = append(wishlist, 15002000)
+                    Wishlist = append(Wishlist, 15002000)
                 } else if string(wishId[i]) == "7" {
-                    wishlist = append(wishlist, 16002000)
+                    Wishlist = append(Wishlist, 16002000)
                 } else if string(wishId[i]) == "8" {
-                    wishlist = append(wishlist, 17002000)
+                    Wishlist = append(Wishlist, 17002000)
                 }
             }
         } else {
@@ -125,7 +127,7 @@ func wishlistAsk() {
 }
 
 func idContains(drawnID float64) bool {
-    for _, value := range wishlist {
+    for _, value := range Wishlist {
         if value == drawnID {
             return true
         }
@@ -135,5 +137,18 @@ func idContains(drawnID float64) bool {
 
 func ShowDrawn() {
     log.Println("恭喜晒, 你已經抽到5星" + ListOfChar())
-    log.Println("你仲唔快D去引繼!!!!!!!!!!!!!!!!!!!!!")
+    log.Println("你仲唔快D去用呢個ac!!!!!!!!!!!!!!!!!!!!!")
+}
+
+func writeInt32(data int) []byte {
+    buf := make([]byte, 4)
+    buf[0] = byte(data)
+    buf[1] = byte(data >> 8)
+    buf[2] = byte(data >> 16)
+    buf[3] = byte(data >> 24)
+    return buf
+}
+
+func readInt32(data []byte) int32 {
+    return int32(uint32(data[0]) + uint32(data[1])<<8 + uint32(data[2])<<16 + uint32(data[3])<<24)
 }

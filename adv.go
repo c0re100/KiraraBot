@@ -18,13 +18,13 @@ func adv() {
 
     req, _ := http.NewRequest("POST", url, strings.NewReader(advJson.String()))
 
-    hash := SHA256withSid(sessionId, "/api/player/adv/add", advJson.String())
+    hash := SHA256withSid(SessionId, "/api/player/adv/add", advJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")

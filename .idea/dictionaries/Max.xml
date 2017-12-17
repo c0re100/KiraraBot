@@ -2,11 +2,29 @@
   <dictionary name="Max">
     <words>
       <w>abcdefghijklmnopqrstuvwxyz</w>
+      <w>acctoken</w>
+      <w>ciphertext</w>
+      <w>crypto</w>
       <w>dedup</w>
+      <w>ebae</w>
+      <w>msgpack</w>
+      <w>mytoken</w>
+      <w>myuuid</w>
+      <w>nczf</w>
+      <w>padtext</w>
+      <w>pmqc</w>
       <w>questchapter</w>
       <w>reguuid</w>
+      <w>ryjw</w>
+      <w>savedata</w>
+      <w>signup</w>
+      <w>sprintf</w>
+      <w>tiiht</w>
       <w>uname</w>
+      <w>unpadding</w>
       <w>upass</w>
+      <w>uuuid</w>
+      <w>wbytes</w>
       <w>wishlist</w>
     </words>
   </dictionary>

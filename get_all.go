@@ -1,10 +1,10 @@
 package main
 
 import (
+    "github.com/Jeffail/gabs"
     "io/ioutil"
     "log"
     "net/http"
-    "github.com/Jeffail/gabs"
     "strconv"
 )
 
@@ -13,13 +13,13 @@ func questGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/quest/get_all", "")
+    hash := SHA256withSid(SessionId, "/api/player/quest/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -39,13 +39,13 @@ func missionGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/mission/get_all", "")
+    hash := SHA256withSid(SessionId, "/api/player/mission/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -65,13 +65,13 @@ func presentGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/present/get_all", "")
+    hash := SHA256withSid(SessionId, "/api/player/present/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -97,13 +97,13 @@ func questchapterGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/quest_chapter/get_all", "")
+    hash := SHA256withSid(SessionId, "/api/quest_chapter/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -123,13 +123,13 @@ func Getall() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/get_all", "")
+    hash := SHA256withSid(SessionId, "/api/player/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -142,10 +142,10 @@ func Getall() {
     if jsonParsed.S("resultCode").Data().(float64) == 0 {
         log.Println("讀取玩家資料...")
         playerName := jsonParsed.S("player", "name").Data().(string)
-        playerCode := jsonParsed.S("player", "myCode").Data().(string)
+        MyCode = jsonParsed.S("player", "myCode").Data().(string)
         log.Println("==========玩家資料==========")
         log.Println("玩家名稱:", playerName)
-        log.Println("玩家ID:", playerCode)
+        log.Println("玩家ID:", MyCode)
     }
 }
 
@@ -155,13 +155,13 @@ func getPresent() {
     managedPresentId := "?managedPresentId=" + BoxID + "&stepCode=2"
     req, _ := http.NewRequest("GET", url+managedPresentId, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/present/get"+managedPresentId, "")
+    hash := SHA256withSid(SessionId, "/api/player/present/get"+managedPresentId, "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
@@ -181,13 +181,13 @@ func gachaGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(sessionId, "/api/player/gacha/get_all?gachaIds=1", "")
+    hash := SHA256withSid(SessionId, "/api/player/gacha/get_all?gachaIds=1", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("X-STAR-AB", "3")
-    req.Header.Add("X-STAR-SESSION-ID", sessionId)
+    req.Header.Add("X-STAR-SESSION-ID", SessionId)
     req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")

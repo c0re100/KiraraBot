@@ -1,8 +1,8 @@
 package main
 
 import (
-    "log"
     "io/ioutil"
+    "log"
     "net/http"
     "strings"
 
@@ -13,8 +13,8 @@ func Login() {
     url := "https://krr-prd.star-api.com/api/player/login"
 
     loginJson := gabs.New()
-    loginJson.Set(reguuid, "uuid")
-    loginJson.Set(accessToken, "accessToken")
+    loginJson.Set(UUID, "uuid")
+    loginJson.Set(AccessToken, "accessToken")
     loginJson.Set(2, "platform")
     loginJson.Set("1.0.2", "appVersion")
 
@@ -37,7 +37,7 @@ func Login() {
 
     jsonParsed, _ := gabs.ParseJSON(body)
     if jsonParsed.S("resultCode").Data().(float64) == 0 {
-        sessionId = jsonParsed.S("sessionId").Data().(string)
+        SessionId = jsonParsed.S("sessionId").Data().(string)
         log.Println("登入成功")
     }
 }

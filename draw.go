@@ -24,14 +24,14 @@ func FirstDraw() {
 
     req, _ := http.NewRequest("POST", url, payload)
 
-    hash := SHA256withSid(sessionId, "/api/player/gacha/draw", fDrawJson.String())
+    hash := SHA256withSid(SessionId, "/api/player/gacha/draw", fDrawJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
     req.Header.Add("x-unity-version", "5.5.4f1")
     req.Header.Add("x-star-ab", "3")
-    req.Header.Add("x-star-session-id", sessionId)
-    req.Header.Add("content-type", "application/json")
+    req.Header.Add("x-star-session-id", SessionId)
+    req.Header.Add("content-type", "application/json; charset=UTF-8")
     req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
     req.Header.Add("Host", "krr-prd.star-api.com")
 
@@ -70,7 +70,7 @@ func FirstDraw() {
     }
 
     log.Println(Char)
-    if count >= wishDrawn {
+    if count >= wishCount {
         return
     }
     time.Sleep(time.Duration(random(17, 23)) * time.Second)
@@ -91,19 +91,18 @@ func reDraw() {
 
         req, _ := http.NewRequest("POST", url, payload)
 
-        hash := SHA256withSid(sessionId, "/api/player/gacha/draw", fDrawJson.String())
+        hash := SHA256withSid(SessionId, "/api/player/gacha/draw", fDrawJson.String())
 
         req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
         req.Header.Add("x-star-requesthash", hash)
         req.Header.Add("x-unity-version", "5.5.4f1")
         req.Header.Add("x-star-ab", "3")
-        req.Header.Add("x-star-session-id", sessionId)
-        req.Header.Add("content-type", "application/json")
+        req.Header.Add("x-star-session-id", SessionId)
+        req.Header.Add("content-type", "application/json; charset=UTF-8")
         req.Header.Add("user-agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Nexus 5X Build/N2G48C)")
-        req.Header.Add("Host", "krr-prd.star-api.com")
 
         res, _ := http.DefaultClient.Do(req)
-        defer res.Body.Close()
+        //defer res.Body.Close()
         body, _ := ioutil.ReadAll(res.Body)
 
         jsonParsed, _ := gabs.ParseJSON(body)
@@ -137,7 +136,7 @@ func reDraw() {
         }
 
         log.Println(Char)
-        if count >= wishDrawn {
+        if count >= wishCount {
             break
         }
         time.Sleep(time.Duration(random(17, 23)) * time.Second)

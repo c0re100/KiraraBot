@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edc0886e-ad2d-4404-b4ea-2fe7bc87c274" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/adv.go" afterPath="$PROJECT_DIR$/adv.go" />
-      <change beforePath="$PROJECT_DIR$/draw.go" afterPath="$PROJECT_DIR$/draw.go" />
-      <change beforePath="$PROJECT_DIR$/get_all.go" afterPath="$PROJECT_DIR$/get_all.go" />
-      <change beforePath="$PROJECT_DIR$/iloveyou/a.d" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/iloveyou/a.d2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/kirara.go" afterPath="$PROJECT_DIR$/kirara.go" />
-      <change beforePath="$PROJECT_DIR$/save.go" afterPath="$PROJECT_DIR$/save.go" />
-      <change beforePath="$PROJECT_DIR$/signup.go" afterPath="$PROJECT_DIR$/signup.go" />
-      <change beforePath="$PROJECT_DIR$/utils.go" afterPath="$PROJECT_DIR$/utils.go" />
-    </list>
+    <list default="true" id="edc0886e-ad2d-4404-b4ea-2fe7bc87c274" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,10 +11,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="kirara.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="kirara.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kirara.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="563">
               <caret line="39" column="14" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
               <folding>
                 <element signature="e#14#45#0" expanded="true" />
@@ -96,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="draw.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="draw.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
@@ -603,9 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="e#14#91#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -633,28 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kirara.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="39" column="14" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-          <folding>
-            <element signature="e#14#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/save.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adv.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -681,7 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1043">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,6 +658,24 @@
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="e#14#121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adv.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kirara.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="39" column="14" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+          <folding>
+            <element signature="e#14#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

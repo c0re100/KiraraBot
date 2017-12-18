@@ -13,7 +13,7 @@ func questGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/quest/get_all", "")
+    hash := SHA256withSid("/api/player/quest/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -39,7 +39,7 @@ func missionGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/mission/get_all", "")
+    hash := SHA256withSid("/api/player/mission/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -65,7 +65,7 @@ func presentGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/present/get_all", "")
+    hash := SHA256withSid("/api/player/present/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -97,7 +97,7 @@ func questchapterGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/quest_chapter/get_all", "")
+    hash := SHA256withSid("/api/quest_chapter/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -123,7 +123,7 @@ func Getall() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/get_all", "")
+    hash := SHA256withSid("/api/player/get_all", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -155,7 +155,7 @@ func getPresent() {
     managedPresentId := "?managedPresentId=" + BoxID + "&stepCode=2"
     req, _ := http.NewRequest("GET", url+managedPresentId, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/present/get"+managedPresentId, "")
+    hash := SHA256withSid("/api/player/present/get"+managedPresentId, "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -181,7 +181,7 @@ func gachaGet() {
 
     req, _ := http.NewRequest("GET", url, nil)
 
-    hash := SHA256withSid(SessionId, "/api/player/gacha/get_all?gachaIds=1", "")
+    hash := SHA256withSid("/api/player/gacha/get_all?gachaIds=1", "")
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)

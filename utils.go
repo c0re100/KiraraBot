@@ -14,7 +14,7 @@ import (
 func SimVersion() {
     url := "https://krr-prd.star-api.com/api/app/version/get?platform=2&version=1.0.3"
 
-    hash := SHA256withSid(SessionId, "/api/app/version/get?platform=2&version=1.0.3", "")
+    hash := SHA256withSid("/api/app/version/get?platform=2&version=1.0.3", "")
 
     req, _ := http.NewRequest("GET", url, nil)
 
@@ -52,12 +52,12 @@ func SHA256(apiEndpoint string, json string) string {
     return hex.EncodeToString(sha256hash)
 }
 
-func SHA256withSid(sessionId string, apiEndpoint string, json string) string {
+func SHA256withSid(apiEndpoint string, json string) string {
     hash := sha256.New()
     if json != "" {
-        hash.Write([]byte(sessionId + " " + apiEndpoint + " " + json + " " + "85af4a94ce7a280f69844743212a8b867206ab28946e1e30e6c1a10196609a11"))
+        hash.Write([]byte(SessionId + " " + apiEndpoint + " " + json + " " + "85af4a94ce7a280f69844743212a8b867206ab28946e1e30e6c1a10196609a11"))
     } else {
-        hash.Write([]byte(sessionId + " " + apiEndpoint + " " + "85af4a94ce7a280f69844743212a8b867206ab28946e1e30e6c1a10196609a11"))
+        hash.Write([]byte(SessionId + " " + apiEndpoint + " " + "85af4a94ce7a280f69844743212a8b867206ab28946e1e30e6c1a10196609a11"))
     }
     sha256hash := hash.Sum(nil)
     return hex.EncodeToString(sha256hash)

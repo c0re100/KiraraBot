@@ -20,7 +20,7 @@ func CharSave() {
 
     req, _ := http.NewRequest("POST", url, strings.NewReader(charJson.String()))
 
-    hash := SHA256withSid(SessionId, "/api/player/tutorial/party/set", charJson.String())
+    hash := SHA256withSid("/api/player/tutorial/party/set", charJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)
@@ -72,7 +72,7 @@ func SaveData() {
 
     req, _ := http.NewRequest("POST", url, strings.NewReader(moveJson.String()))
 
-    hash := SHA256withSid(SessionId, "/api/player/move/get", moveJson.String())
+    hash := SHA256withSid("/api/player/move/get", moveJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)

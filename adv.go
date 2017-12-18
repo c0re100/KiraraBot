@@ -18,7 +18,7 @@ func adv() {
 
     req, _ := http.NewRequest("POST", url, strings.NewReader(advJson.String()))
 
-    hash := SHA256withSid(SessionId, "/api/player/adv/add", advJson.String())
+    hash := SHA256withSid("/api/player/adv/add", advJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)

@@ -29,7 +29,7 @@ func SignUp() {
     payload := strings.NewReader(signJson.String())
     req, _ := http.NewRequest("POST", url, payload)
 
-    hash := SHA256withSid(SessionId, "/api/player/signup", signJson.String())
+    hash := SHA256withSid("/api/player/signup", signJson.String())
 
     req.Header.Add("unity-user-agent", "app/0.0.0; Android OS 7.1.2 / API-25 N2G48C/4104010; LGE Nexus 5X")
     req.Header.Add("x-star-requesthash", hash)

@@ -15,6 +15,7 @@ func FirstDraw() {
 
     isFirst := true
     fDrawJson := gabs.New()
+    count := 0
 
     for {
         url := "https://krr-prd.star-api.com/api/player/gacha/draw"
@@ -53,7 +54,6 @@ func FirstDraw() {
         jsonParsed, _ := gabs.ParseJSON(body)
         Char := gabs.New()
         Char.Array("Gold")
-        count := 0
 
         children, _ := jsonParsed.S("managedCharacters").Children()
         for _, child := range children {

@@ -16,7 +16,7 @@ func Login() {
     loginJson.Set(UUID, "uuid")
     loginJson.Set(AccessToken, "accessToken")
     loginJson.Set(2, "platform")
-    loginJson.Set("1.0.2", "appVersion")
+    loginJson.Set("1.0.3", "appVersion")
 
     payload := strings.NewReader(loginJson.String())
 
